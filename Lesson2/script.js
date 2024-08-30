@@ -1,8 +1,37 @@
-let temperatureС = 5;
-let temperatureF = (9 / 5) * temperatureС + 32;
-console.log(`Температура по Цельсию = ${temperatureС}`);
-console.log(`Температура по Фаренгейту = ${temperatureF}`);
+// Задание 1
 
-let nameMy = `Alexandr`;
-let admin = nameMy;
-console.log(`${admin}`)
+let num1 = Number(prompt(`Введите 1-е число: `));
+let num2 = Number(prompt(`Введите 2-е число: `));
+if (num1 <= 1) {
+  alert(`Да, 1-е число меньше или равно 1`);
+}else{
+  alert(`Нет, 1-е больше 1`);
+}
+if (num2 >= 3) {
+  alert(`Да, 2-е число больше или равно 3`);
+}else{
+  alert(`Нет, 2-е меньше 3`);
+}
+
+// Задание 2
+
+let test = true;
+console.log(test = true ? '+++' : '---');
+
+// Задание 3
+
+let day = Number(prompt(`Введите число от 1 до 31: `));
+if (day <= 10) {
+  alert(`Первая декада`)
+  }else if (day > 10 && day <=20){
+  alert(`Вторая декада`)
+  } else {alert(`Третья декада`)};
+
+// Задание 4
+
+let num = Number(prompt(`Введите любое целое: `));
+
+if (num < 10){alert(`В числе ${num} количество сотен: 0, десятков: 0, единиц: ${num % 10}`);
+}else if (num >= 10 && num < 100)
+  {alert(`В числе ${num} количество сотен: 0, десятков: ${(num - (num % 10)) % 100}, единиц: ${num % 10}`);
+  }else {alert(`В числе ${num} количество сотен: ${(num - (num - (num % 10)) % 100 - (num % 10)) % 1000}, десятков: ${(num - (num % 10)) % 100}, единиц: ${num % 10}`);}
