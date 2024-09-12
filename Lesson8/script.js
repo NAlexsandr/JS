@@ -46,3 +46,11 @@ for (let index = 1; index <= 20; index++) {
   };
   console.log(`\n`);
 }
+
+for (let i = 1; i <= 20; i++) {
+  console.log('x'.repeat(i));
+}
+
+const dead = ['Джон Сноу', 'Джофри', 'Нед Старк', 'Король ночи']
+const isAryaDead = dead.includes('Арья Старк')
+console.log(isAryaDead)
