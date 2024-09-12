@@ -69,13 +69,12 @@ const productsP = [
   },
   ];
 
-  for (let index = 0; index < productsP.length; index++) {
-    productsP[index][`price`] = productsP[index][`price`] * 0.85;
+  function priceChange(prod) {
+    prod[`price`] = prod[`price`] * 0.85;
   }
-
-  for (let i = 0; i < productsP.length; i++) {
-    console.log(productsP[i][`price`]);;
-  }
+  productsP.forEach(priceChange);
+  console.log(`Скидка на товары 15%, новый прайс:`);
+  console.log(productsP);
 
 console.log(``);
 
