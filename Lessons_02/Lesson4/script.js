@@ -1,150 +1,65 @@
 // Задание 1
-console.log(`Задание 1`);
-console.log(``);
-const numbers = {
-  keyin1: 1,
-  keyin2: 2,
-  keyin3: 3,
-  keyin4: 4,
-  keyin5: 5,
-  keyin6: 6,
-  keyin7: 7,
+console.log(`1. Ко всем элементам, имеющим класс "dropdown-item" добавить еще один класс "super-dropdown", необходимо использовать методы forEach и querySelectorAll и свойство classList у элементов.`);
+
+const dropdownItemsElements = document.querySelectorAll(`.dropdown-item`);
+console.log(dropdownItemsElements);
+console.log(Array.from(dropdownItemsElements));
+function addClass(item) {
+  item.classList.add(`super-dropdown`);
   }
-  for (const item in numbers) {
-    if (numbers[item] >= 3) {console.log(item + `: ` + numbers[item]);}
-      }
-console.log(``);
+const arr = Array.from(dropdownItemsElements).forEach(addClass);
+console.log(arr);
 
 // Задание 2
-console.log(`Задание 2`);
-console.log(``);
+console.log(`2. У элемента с классом btn необходимо убрать класс "btn-secondary", если он присутствует у этого элемента, либо добавить, если такого класса у элемента не было.`);
 
-const post = {
-  author: "John", // вывести этот текст
-  postId: 23,
-  comments: [
-  {
-  userId: 10,
-  userName: "Alex",
-  text: "lorem ipsum",
-  rating: {
-  likes: 10,
-  dislikes: 2, // вывести это число
-  },
-  },
-  {
-  userId: 5, // вывести это число
-  userName: "Jane",
-  text: "lorem ipsum 2", // вывести этот текст
-  rating: {
-  likes: 3,
-  dislikes: 1,
-  },
-  },
-  ],
-  };
-
-  console.log(post[`author`]);
-  console.log(post[`comments`][0][`rating`][`dislikes`]);
-  console.log(post[`comments`][1][`userId`]);
-  console.log(post[`comments`][1][`text`]);
-  console.log(``);
+const btnEl = document.querySelector(`.btn`);
+if (btnEl.classList.contains(`btn-secondary`)) {
+  btnEl.classList.remove(`btn-secondary`)
+} else {
+  btnEl.classList.add(`btn-secondary`);
+}
+console.log(btnEl);
 
 // Задание 3
-console.log(`Задание 3`);
-console.log(``);
+console.log(`3. Необходимо удалить класс "dropdown-menu" у элемента, у которого присутствует класс "menu".`);
 
-const productsP = [
-  {
-  id: 3,
-  price: 200,
-  },
-  {
-  id: 4,
-  price: 900,
-  },
-  {
-  id: 1,
-  price: 1000,
-  },
-  ];
-
-  function priceChange(prod) {
-    prod[`price`] = prod[`price`] * 0.85;
-  }
-  productsP.forEach(priceChange);
-  console.log(`Скидка на товары 15%, новый прайс:`);
-  console.log(productsP);
-
-console.log(``);
+const class_menuEl = document.querySelector(`.menu`);
+class_menuEl.classList.remove(`dropdown-menu`);
+console.log(class_menuEl);
 
 // Задание 4
-console.log(`Задание 4`);
-console.log(``);
+console.log(`4. Используя метод insertAdjacentHTML добавьте после div'a с классом "dropdown" следующую разметку:
+  <a href="#">link</a>`);
 
-const products = [
-  {
-  id: 3,
-  price: 127,
-  photos: [
-  "1.jpg",
-  "2.jpg",
-  ],
-  },
-  {
-  id: 5,
-  price: 499,
-  photos: [],
-  },
-  {
-  id: 10,
-  price: 26,
-  photos: [
-  "3.jpg",
-  ],
-  },
-  {
-  id: 8,
-  price: 78,
-  },
-  ];
-
-function photoPresent(el){
-    if (el[`photos`] == undefined || el[`photos`].length == 0) {
-      return false;
-    } else {return true};
-}
-
-function compareFn(a, b)
-{
-  if (a[`price`] < b[`price`]) {
-    return -1;
-  } else if (a[`price`] > b[`price`]) {
-    return 1;
+const dropdownArrayDiv = document.getElementsByTagName(`div`);
+console.log(dropdownArrayDiv);
+let dropdownDiv = null;
+for (let i = 0; i < dropdownArrayDiv.length; i++) {
+  if (dropdownArrayDiv[i].className = `dropdown`) {
+    dropdownDiv = dropdownArrayDiv[i];
   }
-  return 0;
 }
-console.log(`Продукты в которых есть хоть одна фотография:`);
-console.log(products.filter(photoPresent));
-console.log(`Сортировка по цене:`);
-console.log(products.sort(compareFn));
+dropdownDiv.insertAdjacentHTML('afterBegin', `<a href="#">link</a>`);
+console.log(dropdownDiv);
 
-console.log(``);
+  // Задание 5
+console.log(`5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".`);
 
-// Задание 5
-console.log(`Задание 5`);
-console.log(``);
+const idEl = document.getElementById(`dropdownMenuButton`);
+idEl.id = `superDropdown`;
+console.log(idEl);
 
-const en = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
-const ru = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"];
-const week = {};
+// Задание 6
+console.log(`6. Добавьте атрибут data-dd со значением 3 элементу у которого существует атрибут "aria-labelledby" равный "dropdownMenuButton", используя dataset.`);
 
-if (en.length === ru.length) {
-  for (let i = 0; i < en.length; i++) {
-    week[en[i]] = ru[i];
-  }
-  console.log(week);
-} else {
-  console.log(`Списки дней недели не совпадают`);
-}
+const attributEl = document.querySelector(`[aria-labelledby="dropdownMenuButton"]`);
+attributEl.setAttribute('data-dd','3');
+console.log(attributEl);
 
+// Задание 7
+console.log(`7. Удалите атрибут type у элемента с классом "dropdown-toggle".`);
+
+const classEl = document.querySelector(`.dropdown-toggle`);
+classEl.removeAttribute(`type`);
+console.log(classEl);
