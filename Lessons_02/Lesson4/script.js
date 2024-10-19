@@ -28,6 +28,8 @@ const class_menuEl = document.querySelector(`.menu`);
 class_menuEl.classList.remove(`dropdown-menu`);
 console.log(class_menuEl);
 
+});
+
 // Задание 4
 console.log(`4. Используя метод insertAdjacentHTML добавьте после div'a с классом "dropdown" следующую разметку:
   <a href="#">link</a>`);
