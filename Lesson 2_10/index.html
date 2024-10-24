@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson10</title>
+    <style>
+      .subscriber {
+        width: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content"></div>
+    <script src="./data.js"></script>
+    <script>
+      const data = JSON.parse(dataInfo);
+      const contentEl = document.querySelector(`.content`);
+      data.forEach((element) => {
+        const divEl = document.createElement(`div`);
+        divEl.classList.add(`subscriber`);
+        const hEl = document.createElement(`h`);
+        hEl.classList.add(`hClass`);
+        hEl.textContent = element.id.name;
+        const pEl = document.createElement(`p`);
+        pEl.classList.add(`pClass`);
+        pEl.textContent = element.location.country;
+        const imgEl = document.createElement(`img`);
+        imgEl.classList.add(`imgClass`);
+        imgEl.src = element.picture.large;
+        divEl.appendChild(hEl);
+        divEl.appendChild(pEl);
+        divEl.appendChild(imgEl);
+        contentEl.appendChild(divEl);
+      });
+    </script>
+  </body>
+</html>

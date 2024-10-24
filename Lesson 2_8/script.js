@@ -43,6 +43,9 @@ buttonFormEl.addEventListener('click', function (e) {
     console.log(inputEl_1);
     inputEl_2.style.border = `1px solid red`;
     inputEl_2.classList.add(`error`);
+    
     e.preventDefault();
   }
 });
+console.log(inputEl_1);
+console.log(inputEl_2);
