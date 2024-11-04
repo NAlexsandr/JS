@@ -255,11 +255,11 @@
           // console.log(target);
           //Создаем элемент корзины
           // Надо проверить на наличие этого элемента ??????????
-          const itemEls = document.querySelectorAll(`.item`);
+          let itemEls = document.querySelectorAll(`.item`);
           let CreateEl = 1;
-          itemEls.forEach(function (itemS) {
-            if (itemEls.length != 0 && itemS.dataset.id === target.dataset.id) {
-              const inputPr = itemS.querySelector(`input`);
+          itemEls.forEach(function (item) {
+            if (itemEls.length != 0 && item.dataset.id === target.dataset.id) {
+              const inputPr = item.querySelector(`input`);
               inputPr.value = parseInt(inputPr.value) + 1; // Увеличиваем корзину на 1
               CreateEl = 0;
             }
@@ -323,26 +323,29 @@
               }
             });
           }
-          if (target.classList.contains(`cross`)) {
-            const itemEls = document.querySelectorAll(`.item`);
-            // console.log(target.dataset.id);
-            // console.log(itemEls);
-            itemEls.forEach(function (item) {
-              console.log(item.dataset.id);
-
-              if (target.dataset.id === item.dataset.id) {
-                //const cartItems = document.querySelector(`.cartItems`);
-                console.log(cartItems);
-                cartItems.removeChild(item);
-              }
-              const itemEls = document.querySelectorAll(`.item`);
-              if (itemEls.length === 0) {
-                cartItemsVisibility.style.visibility = "hidden";
-                // делаем невидимым Cart Items
-              }
-            });
-          }
         }
+        //Удаляем элемент из корзины
+
+        if (target.classList.contains(`cross`)) {
+          itemEls = document.querySelectorAll(`.item`);
+          // console.log(target.dataset.id);
+          //console.log(itemEls);
+          itemEls.forEach(function (item) {
+            console.log(item.dataset.id);
+
+            if (target.dataset.id === item.dataset.id) {
+              //const cartItems = document.querySelector(`.cartItems`);
+              console.log(cartItems);
+              cartItems.removeChild(item);
+            }
+            itemEls = document.querySelectorAll(`.item`);
+            if (itemEls.length === 0) {
+              cartItemsVisibility.style.visibility = "hidden";
+              // делаем невидимым Cart Items
+            }
+          });
+        }
+
         e.preventDefault();
       });
     </script>
